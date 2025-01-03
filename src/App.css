@@ -93,7 +93,7 @@ h1 {
   position: relative;
   margin: 35px auto;
   max-width: 450px;
-  width: 85%;
+  width: 75%;
 }
 
 input[type="file"] {
@@ -243,8 +243,8 @@ input[type="file"]:hover {
   }
 
   .file-input-wrapper {
-    width: 90%;
-    margin: 20px auto;
+    width: 80%;
+ 
   }
 
   input[type="file"] {
@@ -337,8 +337,8 @@ input[type="file"]:hover {
   }
 
   .file-input-wrapper {
-    width: 95%;
-    margin: 15px auto;
+    width: 80%;
+   
   }
 
   input[type="file"] {
