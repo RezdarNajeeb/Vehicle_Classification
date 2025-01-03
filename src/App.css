@@ -23,6 +23,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow-x: hidden;
 }
 
 body.light {
@@ -46,17 +47,18 @@ body.dark {
 }
 
 .container {
-  max-width: 700px;
-  width: 90%;
-  margin: 15px;
-  padding: 40px;
-  border-radius: 30px;
+  max-width: 600px;
+  width: 80%;
+  margin: 35px auto;
+  padding: 30px;
+  border-radius: 20px;
   text-align: center;
   backdrop-filter: blur(10px);
   transition: transform 0.3s ease;
   overflow: hidden;
-  margin-top: 100px;
-  margin-bottom: 50px;
+  position: relative;
+  left: 0;
+  right: 0;
 }
 
 .light .container {
@@ -289,76 +291,215 @@ input[type="file"]:hover {
 /* Add smaller screen support */
 @media (max-width: 480px) {
   .container {
-    padding: 15px 10px;
-    margin: 5px;
-    width: 95%;
+    width: 90%;
+    max-width: 300px;
+    padding: 0.3rem;
+    margin: 30px auto;
+    border-radius: 8px;
+  }
+
+  .main-content {
+    width: 100%;
+    padding: 0;
+    margin: 20px auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .app-wrapper {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header-content {
+    width: 85%;
+    max-width: 260px;
+    padding: 0.15rem 0;
+    margin: 0 auto;
+  }
+
+  .footer-content {
+    width: 85%;
+    max-width: 260px;
+    margin: 0 auto;
+    padding: 0;
   }
 
   h1 {
-    font-size: 1.5rem;
-    margin-bottom: 1.2rem;
-  }
-
-  input[type="file"] {
-    padding: 10px;
-    font-size: 0.9rem;
-  }
-
-  .buttonn {
-    width: 95%;
-    padding: 10px 15px;
-    font-size: 0.95rem;
-  }
-
-  .result {
-    font-size: 0.95rem;
-    padding: 12px;
+    font-size: 0.8rem;
+    margin-bottom: 0.3rem;
   }
 
   .file-input-wrapper {
-    width: 92%;
+    width: 80%;
+    max-width: 220px;
+    margin: 0.2rem auto;
+  }
+
+  input[type="file"] {
+    padding: 0.25rem;
+    font-size: 0.6rem;
+    border-radius: 4px;
+    border-width: 1px;
+  }
+
+  .buttonn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.65rem;
+    min-width: 80px;
+    border-radius: 4px;
+    margin: 0.2rem auto;
+    width: 70%;
+    max-width: 140px;
+    height: 24px;
+  }
+
+  .result {
+    width: 70%;
+    max-width: 160px;
+    padding: 0.25rem;
+    font-size: 0.6rem;
+    margin: 0.2rem auto;
+    border-radius: 4px;
+  }
+
+  .image-preview {
+    width: 70%;
+    max-width: 160px;
+    margin: 0.2rem auto;
+    border-radius: 3px;
+    border-width: 1px;
+    max-height: 120px;
+  }
+
+  /* Even smaller header */
+  .header {
+    height: 32px;
+  }
+
+  .header-content {
+    width: 85%;
+    max-width: 260px;
+    padding: 0.15rem;
+  }
+
+  .logo-text {
+    font-size: 0.65rem;
+  }
+
+  .nav-links {
+    gap: 0.2rem;
+  }
+
+  .nav-links a {
+    font-size: 0.6rem;
+    padding: 0.15rem 0.25rem;
   }
 
   .theme-toggle {
-    top: 10px;
-    right: 10px;
-    width: 38px;
-    height: 38px;
-    padding: 8px;
+    width: 20px;
+    height: 20px;
+    padding: 2px;
+    margin-left: 0.2rem;
   }
 
   .theme-toggle svg {
-    width: 20px;
-    height: 20px;
+    width: 12px;
+    height: 12px;
+  }
+
+  /* Smaller footer */
+  .footer {
+    padding: 0.3rem 0;
+  }
+
+  .footer-content {
+    width: 85%;
+    max-width: 260px;
+    gap: 0.3rem;
+  }
+
+  .footer-section {
+    padding: 0.2rem;
+  }
+
+  .footer-section h3 {
+    font-size: 0.65rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .footer-section p {
+    font-size: 0.55rem;
+    line-height: 1.1;
+    margin-bottom: 0.2rem;
+    max-width: 220px;
+  }
+
+  .tech-badge {
+    padding: 0.1rem 0.25rem;
+    font-size: 0.5rem;
+    border-radius: 3px;
+    margin: 0.1rem;
+  }
+
+  .quick-links {
+    gap: 0.2rem;
+  }
+
+  .quick-links a {
+    font-size: 0.55rem;
+  }
+
+  .footer-bottom {
+    width: 85%;
+    max-width: 260px;
+    margin: 0.2rem auto 0;
+    padding: 0.2rem 0 0;
+  }
+
+  .footer-bottom p {
+    font-size: 0.5rem;
+  }
+
+  /* Adjust minimum touch heights */
+  .nav-links a, 
+  .quick-links a,
+  .buttonn,
+  input[type="file"],
+  .theme-toggle {
+    min-height: 28px;
+  }
+
+  /* Make footer content more compact */
+  .footer-badges {
+    gap: 0.2rem;
+    margin-top: 0.2rem;
   }
 }
 
 /* Add orientation support */
 @media (max-height: 600px) and (orientation: landscape) {
   .container {
-    margin: 10px auto;
-    padding: 15px;
-  }
-
-  h1 {
-    margin-bottom: 1rem;
-  }
-
-  .file-input-wrapper {
-    margin: 15px auto;
+    padding: 0.6rem;
+    margin-top: 50px;
   }
 
   .image-preview {
-    max-height: 40vh;
-    width: auto;
+    max-height: 150px;
   }
 
-  .theme-toggle {
-    top: 10px;
-    right: 10px;
-    width: 32px;
-    height: 32px;
-    padding: 5px;
+  .footer {
+    padding: 0.8rem 0;
+  }
+
+  .footer-content {
+    gap: 0.8rem;
   }
 }
 
@@ -444,6 +585,12 @@ body,
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .header {
@@ -908,5 +1055,252 @@ body,
 
   .tech-badge {
     font-size: 0.8rem;
+  }
+}
+
+/* Responsive styles for mobile */
+@media (max-width: 480px) {
+  .container {
+    padding: 1rem;
+    margin: calc(var(--header-height-mobile) + 0.5rem) auto 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .file-input-wrapper {
+    margin: 0.5rem auto;
+    width: 100%;
+  }
+
+  input[type="file"] {
+    padding: 0.6rem;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  .buttonn {
+    max-width: 100%;
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    margin: 0.5rem auto;
+    display: block;
+  }
+
+  .result {
+    max-width: 100%;
+    padding: 0.8rem;
+    font-size: 0.9rem;
+    margin: 0.5rem auto;
+    text-align: center;
+  }
+
+  .image-preview {
+    max-width: 100%;
+    margin: 0.5rem auto;
+    display: block;
+  }
+
+  .theme-toggle {
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 36px;
+    height: 36px;
+    padding: 8px;
+  }
+
+  .theme-toggle svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .header-content {
+    padding: 0.5rem 1rem;
+    justify-content: center;
+  }
+
+  .logo-text {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .nav-links {
+    gap: 0.5rem;
+    justify-content: center;
+  }
+
+  .nav-links a {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.5rem;
+  }
+
+  .footer-content {
+    padding: 0 1rem;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  .footer-section h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-section p {
+    font-size: 0.8rem;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+  }
+
+  .tech-badge {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+
+  .quick-links a {
+    font-size: 0.9rem;
+  }
+
+  .footer-bottom {
+    padding: 1rem 1rem 0;
+  }
+
+  .footer-bottom p {
+    font-size: 0.8rem;
+  }
+
+  .social-icons {
+    gap: 0.5rem;
+    justify-content: center;
+  }
+
+  .social-icons a {
+    padding: 0.4rem;
+  }
+}
+
+/* Additional mobile improvements */
+@media (max-width: 480px) {
+  /* Improve touch targets */
+  .nav-links a, 
+  .quick-links a,
+  .buttonn,
+  input[type="file"],
+  .theme-toggle {
+    min-height: 44px; /* Minimum touch target size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Improve spacing for better touch interaction */
+  .nav-links {
+    gap: 0.8rem;
+  }
+
+  /* Make file input more mobile-friendly */
+  .file-input-wrapper {
+    margin: 1rem auto;
+  }
+
+  input[type="file"] {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  /* Ensure proper spacing between elements */
+  .container > * {
+    margin-bottom: 1rem;
+  }
+
+  /* Improve image preview on mobile */
+  .image-preview {
+    border-radius: 10px;
+    max-height: 300px;
+    object-fit: contain;
+  }
+
+  /* Make result more readable on mobile */
+  .result {
+    width: 90%;
+    max-width: 300px;
+    margin: 1rem auto;
+    line-height: 1.4;
+  }
+
+  /* Improve footer readability */
+  .footer-section p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  /* Better spacing for tech badges */
+  .footer-badges {
+    justify-content: center;
+    gap: 0.8rem;
+  }
+
+  /* Ensure header is compact but readable */
+  .header-content {
+    padding: 0.8rem;
+  }
+
+  .logo-text {
+    font-size: 1.1rem;
+  }
+
+  /* Improve button visibility */
+  .buttonn {
+    width: 90%;
+    max-width: 280px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+}
+
+/* Add orientation-specific styles */
+@media (max-height: 600px) and (orientation: landscape) {
+  .container {
+    padding: 1rem;
+    margin-top: 60px;
+  }
+
+  .image-preview {
+    max-height: 200px;
+  }
+
+  .footer {
+    padding: 1rem 0;
+  }
+
+  .footer-content {
+    gap: 1rem;
+  }
+}
+
+/* Make landscape even more compact */
+@media (max-height: 500px) and (orientation: landscape) {
+  .container {
+    padding: 0.25rem;
+    margin-top: 30px;
+  }
+
+  .image-preview {
+    max-height: 100px;
+  }
+
+  .footer {
+    padding: 0.25rem 0;
+  }
+
+  .footer-content {
+    gap: 0.2rem;
   }
 }

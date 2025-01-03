@@ -96,10 +96,19 @@ function App() {
       }
 
       const data = await response.json()
-      setResult(`Predicted Vehicle Class: ${data.predicted_class} <br> Probability: ${(data.probability * 100).toFixed(3)}%`)
+      setResult(
+        <div>
+          Predicted Vehicle Class: {data.predicted_class}<br />
+          Probability: {(data.probability * 100).toFixed(3)}%
+        </div>
+      )
     } catch (error) {
       console.error('Prediction error:', error)
-      setResult(`Error: ${error.message}`)
+      setResult(
+        <div>
+          Error: {error.message}
+        </div>
+      )
     } finally {
       resultElement?.classList.remove('processing')
     }
